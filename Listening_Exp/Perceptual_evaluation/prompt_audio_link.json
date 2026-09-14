@@ -1,0 +1,157 @@
+[
+    {
+        "audio_clip": "Squire Tuck - Until The Bitter End.wav",
+        "prompt": "Add more warmth to the overall sound.",
+        "category": "Instrumental",
+        "descriptor": "Warm",
+        "credits": "Until The Bitter End, Squire Tuck, Free Music Archive, CC BY-NC-ND License"
+    },
+    {
+        "audio_clip": "JBlanked - Hardwork (Instrumental).wav",
+        "prompt": "Make the mix sound brighter.",
+        "category": "Instrumental",
+        "descriptor": "Bright",
+        "credits": "Hardwork (Instrumental), JBlanked, Free Music Archive, CC BY-ND License"
+    },
+    {
+        "audio_clip": "Raul Diaz Palomar - Maqbara (Créditos).wav",
+        "prompt": "Enhance the clarity of the individual instruments.",
+        "category": "Instrumental",
+        "descriptor": "Clear",
+        "credits": "Maqbara (Créditos), Raul Diaz Palomar, Free Music Archive, CC BY-NC-ND License"
+    },
+    {
+        "audio_clip": "Maxim Novak - 09 Saudade Nostalgia.wav",
+        "prompt": "Smooth out the tone of the instruments.",
+        "category": "Instrumental",
+        "descriptor": "Smooth",
+        "credits": "09 Saudade Nostalgia, Maxim Novak, Free Music Archive, CC BY-NC-ND License"
+    },
+    {
+        "audio_clip": "Mr Smith - B Bass.wav",
+        "prompt": "Give the low end more weight and heaviness.",
+        "category": "Instrumental",
+        "descriptor": "Heavy",
+        "credits": "B Bass, Mr Smith, Free Music Archive, CC BY License"
+    },
+    {
+        "audio_clip": "Squire Tuck - Objects of Desire.wav",
+        "prompt": "Reduce the harshness in the high frequencies.",
+        "category": "Instrumental",
+        "descriptor": "Harsh",
+        "credits": "Objects of Desire, Squire Tuck, Free Music Archive, CC BY-NC-ND License"
+    },
+    {
+        "audio_clip": "Blue Dot Sessions - Partly Sage.wav",
+        "prompt": "Reduce the tinny quality in the sound.",
+        "category": "Instrumental",
+        "descriptor": "Tinny",
+        "credits": "Partly Sage, Blue Dot Sessions, Free Music Archive, CC BY-NC License"
+    },
+    {
+        "audio_clip": "84-121550-0000.wav",
+        "prompt": "Enhance the clarity of the narrator's voice.",
+        "category": "Audiobook",
+        "descriptor": "Clear",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "174-168635-0002.wav",
+        "prompt": "Make the voice sound less nasal.",
+        "category": "Audiobook",
+        "descriptor": "Nasal",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "1462-170145-0000.wav",
+        "prompt": "Add more warmth to the speaker's voice.",
+        "category": "Audiobook",
+        "descriptor": "Warm",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "251-137823-0001.wav",
+        "prompt": "Reduce the harshness in the speaker's voice.",
+        "category": "Audiobook",
+        "descriptor": "Harsh",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "422-122949-0000.wav",
+        "prompt":"Reduce the tinny quality in the recording.",
+        "category": "Audiobook",
+        "descriptor": "Tinny",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "652-130737-0000.wav",
+        "prompt": 	"Smooth out the tone of the voice.",
+        "category": "Audiobook",
+        "descriptor": "Smooth",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "777-126732-0025.wav",
+        "prompt": "Make the speech sound crisper and more defined.",
+        "category": "Audiobook",
+        "descriptor": "Crisp",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "1919-142785-0001.wav",
+        "prompt": "Reduce the sharpness of the 's' sounds.",
+        "category": "Audiobook",
+        "descriptor": "Sibilance",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "Balon Rocop - Mardi Gras Nights at Universal.wav",
+        "prompt": "Ensure the voice can be heard clearly.",
+        "category": "Music",
+        "descriptor": "Clear",
+        "credits": "Mardi Gras Nights at Universal, Balon Rocop, Free Music Archive, CC BY-NC-ND License"
+    },
+    {
+        "audio_clip": "Azavela Torres - Hija del Silencio.wav",
+        "prompt": "Add more warmth to the background music.",
+        "category": "Music",
+        "descriptor": "Warm",
+        "credits": "Hija del Silencio, Azavela Torres, Free Music Archive, CC BY-NC-ND License"
+    },
+    {
+        "audio_clip": "Andrey Petrov - Картина мира.wav",
+        "prompt": "Reduce the harshness in the vocals.",
+        "category": "Music",
+        "descriptor": "Harsh",
+        "credits": "Картина мира, Andrey Petrov, Free Music Archive, CC BY License"
+    },
+    {
+        "audio_clip": "Floodplain Gold - Сказка вновь не стала былью (dark version, Udio).wav",
+        "prompt": "Reduce how heavy the music feels.",
+        "category": "Music",
+        "descriptor": "Heavy",
+        "credits": "Сказка вновь не стала былью (dark version, Udio), Blue Floodplain Gold, Free Music Archive, CC BY License"
+    },
+    {
+        "audio_clip": "Sintel2.wav",
+        "prompt": 	"Reduce the tinny quality in the voice.",
+        "category": "Movie",
+        "descriptor": "Tinny",
+        "credits": "Sintel, Blender Studios, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "Tearsofsteel6.wav",
+        "prompt": "Make the dialogue easier to hear over the music.",
+        "category": "Movie",
+        "descriptor": "Movie Specific",
+        "credits": "Tears of Steel, Blender Studios, CC BY 4.0 License"
+    },
+    {
+        "audio_clip": "HorrorTrain1.wav",
+        "prompt": "Balance the music so it doesn't overpower the dialogue.",
+        "category": "Movie",
+        "descriptor": "Movie Specific",
+        "credits": "Horror Train, Public Domain Movies, CC0 Public Domain License"
+    }
+    
+]

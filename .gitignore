@@ -1,0 +1,57 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python caches and compiled files
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# WandB logs and metrics
+wandb/
+
+# Data directory exclusions (raw audio and binary caches)
+Data_dir/original_audio_trimmed/
+Data_dir/dsp_features/
+Data_dir/archive/
+Data_dir/reward_models/
+*.pkl
+
+# Audio files
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+Listening_Exp/Perceptual_evaluation/*/*.wav
+
+# Model Checkpoints and Weights
+src/GRPO_models/*/checkpoint-*/
+src/GRPO_models/FX_model/
+src/GRPO_models/FX_Voice_model/
+src/GRPO_models/Text_only/
+src/GRPO_models/Voice_model/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.pth.tar
+
+# Temporary and local documents
+temp.txt
+*.tmp
+*.pdf
+
+# Editor and OS settings
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

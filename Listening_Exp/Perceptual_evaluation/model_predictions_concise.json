@@ -1,0 +1,992 @@
+[
+    {
+        "id": 1,
+        "prompt": "Add more warmth to the overall sound.",
+        "category": "Instrumental",
+        "audio_clip": "Squire Tuck - Until The Bitter End.wav",
+        "descriptor": "Warm",
+        "credits": "Until The Bitter End, Squire Tuck, Free Music Archive, CC BY-NC-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.3, -0.3]",
+                "parsed_coord": [
+                    1.7999999999999998,
+                    -1.7999999999999998
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, -1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -6.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -1, 0.5 ]",
+                "parsed_coord": [
+                    -6.0,
+                    3.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.4, 0.8]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    4.800000000000001
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[ -0.2, 0.98 ]",
+                "parsed_coord": [
+                    -1.2000000000000002,
+                    5.88
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "prompt": "Make the mix sound brighter.",
+        "category": "Instrumental",
+        "audio_clip": "JBlanked - Hardwork (Instrumental).wav",
+        "descriptor": "Bright",
+        "credits": "Hardwork (Instrumental), JBlanked, Free Music Archive, CC BY-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, 0.8]",
+                "parsed_coord": [
+                    3.0,
+                    4.800000000000001
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[0.4, 0.75]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    4.5
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -0.9, -0.5 ]",
+                "parsed_coord": [
+                    -5.4,
+                    -3.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.4, 0.7]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    4.199999999999999
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.05, 0.99]",
+                "parsed_coord": [
+                    0.30000000000000004,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 3,
+        "prompt": "Enhance the clarity of the individual instruments.",
+        "category": "Instrumental",
+        "audio_clip": "Raul Diaz Palomar - Maqbara (Créditos).wav",
+        "descriptor": "Clear",
+        "credits": "Maqbara (Créditos), Raul Diaz Palomar, Free Music Archive, CC BY-NC-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0, 1]",
+                "parsed_coord": [
+                    0.0,
+                    6.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.5,  -0.75 ]",
+                "parsed_coord": [
+                    -3.0,
+                    -4.5
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.4, 0.8]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    4.800000000000001
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.8, 0.5]",
+                "parsed_coord": [
+                    4.800000000000001,
+                    3.0
+                ]
+            }
+        }
+    },
+    {
+        "id": 4,
+        "prompt": "Smooth out the tone of the instruments.",
+        "category": "Instrumental",
+        "audio_clip": "Maxim Novak - 09 Saudade Nostalgia.wav",
+        "descriptor": "Smooth",
+        "credits": "09 Saudade Nostalgia, Maxim Novak, Free Music Archive, CC BY-NC-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0, 0]",
+                "parsed_coord": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.5,  -0.75 ]",
+                "parsed_coord": [
+                    -3.0,
+                    -4.5
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -1, -1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -6.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.75, -0.75 ]",
+                "parsed_coord": [
+                    -4.5,
+                    -4.5
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.8, 0.5]",
+                "parsed_coord": [
+                    4.800000000000001,
+                    3.0
+                ]
+            }
+        }
+    },
+    {
+        "id": 5,
+        "prompt": "Give the low end more weight and heaviness.",
+        "category": "Instrumental",
+        "audio_clip": "Mr Smith - B Bass.wav",
+        "descriptor": "Heavy",
+        "credits": "B Bass, Mr Smith, Free Music Archive, CC BY License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.8, 0.2]",
+                "parsed_coord": [
+                    4.800000000000001,
+                    1.2000000000000002
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, -0.5 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -3.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -0.9, -0.5 ]",
+                "parsed_coord": [
+                    -5.4,
+                    -3.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.5,  -1.0 ]",
+                "parsed_coord": [
+                    -3.0,
+                    -6.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.95, 0.99]",
+                "parsed_coord": [
+                    5.699999999999999,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 6,
+        "prompt": "Reduce the harshness in the high frequencies.",
+        "category": "Instrumental",
+        "audio_clip": "Squire Tuck - Objects of Desire.wav",
+        "descriptor": "Harsh",
+        "credits": "Objects of Desire, Squire Tuck, Free Music Archive, CC BY-NC-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.2, 0.8]",
+                "parsed_coord": [
+                    1.2000000000000002,
+                    4.800000000000001
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[0,  -0.5]",
+                "parsed_coord": [
+                    0.0,
+                    -3.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -0.9,  -0.5 ]",
+                "parsed_coord": [
+                    -5.4,
+                    -3.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.5, -1.0 ]",
+                "parsed_coord": [
+                    -3.0,
+                    -6.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.95, 0.25]",
+                "parsed_coord": [
+                    5.699999999999999,
+                    1.5
+                ]
+            }
+        }
+    },
+    {
+        "id": 7,
+        "prompt": "Reduce the tinny quality in the sound.",
+        "category": "Instrumental",
+        "audio_clip": "Blue Dot Sessions - Partly Sage.wav",
+        "descriptor": "Tinny",
+        "credits": "Partly Sage, Blue Dot Sessions, Free Music Archive, CC BY-NC License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.2, -0.8]",
+                "parsed_coord": [
+                    1.2000000000000002,
+                    -4.800000000000001
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, 0.9 ]",
+                "parsed_coord": [
+                    -6.0,
+                    5.4
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.1, 0.9]",
+                "parsed_coord": [
+                    0.6000000000000001,
+                    5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.1, -0.9 ]",
+                "parsed_coord": [
+                    -0.6000000000000001,
+                    -5.4
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.8]",
+                "parsed_coord": [
+                    5.4,
+                    4.800000000000001
+                ]
+            }
+        }
+    },
+    {
+        "id": 8,
+        "prompt": "Enhance the clarity of the narrator's voice.",
+        "category": "Audiobook",
+        "audio_clip": "84-121550-0000.wav",
+        "descriptor": "Clear",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0, 1]",
+                "parsed_coord": [
+                    0.0,
+                    6.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.1, -0.45 ]",
+                "parsed_coord": [
+                    -0.6000000000000001,
+                    -2.7
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[-0.5, 0.5]",
+                "parsed_coord": [
+                    -3.0,
+                    3.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[1, 1]",
+                "parsed_coord": [
+                    6.0,
+                    6.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.99, 0.98]",
+                "parsed_coord": [
+                    5.9399999999999995,
+                    5.88
+                ]
+            }
+        }
+    },
+    {
+        "id": 9,
+        "prompt": "Make the voice sound less nasal.",
+        "category": "Audiobook",
+        "audio_clip": "174-168635-0002.wav",
+        "descriptor": "Nasal",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, -0.5]",
+                "parsed_coord": [
+                    3.0,
+                    -3.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.1,  -0.4 ]",
+                "parsed_coord": [
+                    -0.6000000000000001,
+                    -2.4000000000000004
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 10,
+        "prompt": "Add more warmth to the speaker's voice.",
+        "category": "Audiobook",
+        "audio_clip": "1462-170145-0000.wav",
+        "descriptor": "Warm",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.3, -0.3]",
+                "parsed_coord": [
+                    1.7999999999999998,
+                    -1.7999999999999998
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, -1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -6.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9, 1.0]",
+                "parsed_coord": [
+                    5.4,
+                    6.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 11,
+        "prompt": "Reduce the harshness in the speaker's voice.",
+        "category": "Audiobook",
+        "audio_clip": "251-137823-0001.wav",
+        "descriptor": "Harsh",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.2, -0.2]",
+                "parsed_coord": [
+                    1.2000000000000002,
+                    -1.2000000000000002
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, 0.75 ]",
+                "parsed_coord": [
+                    -6.0,
+                    4.5
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.5, 0.8]",
+                "parsed_coord": [
+                    3.0,
+                    4.800000000000001
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -1, -0.5 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -3.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 12,
+        "prompt": "Reduce the tinny quality in the recording.",
+        "category": "Audiobook",
+        "audio_clip": "422-122949-0000.wav",
+        "descriptor": "Tinny",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.2, -0.8]",
+                "parsed_coord": [
+                    1.2000000000000002,
+                    -4.800000000000001
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, 1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    6.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.08, -0.92 ]",
+                "parsed_coord": [
+                    -0.48,
+                    -5.5200000000000005
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 13,
+        "prompt": "Smooth out the tone of the voice.",
+        "category": "Audiobook",
+        "audio_clip": "652-130737-0000.wav",
+        "descriptor": "Smooth",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0, 0]",
+                "parsed_coord": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[0.0,  -0.49]",
+                "parsed_coord": [
+                    0.0,
+                    -2.94
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.5, 0.8]",
+                "parsed_coord": [
+                    3.0,
+                    4.800000000000001
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9,  -0.6]",
+                "parsed_coord": [
+                    5.4,
+                    -3.5999999999999996
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 1.0]",
+                "parsed_coord": [
+                    5.4,
+                    6.0
+                ]
+            }
+        }
+    },
+    {
+        "id": 14,
+        "prompt": "Make the speech sound crisper and more defined.",
+        "category": "Audiobook",
+        "audio_clip": "777-126732-0025.wav",
+        "descriptor": "Crisp",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, 0.8]",
+                "parsed_coord": [
+                    3.0,
+                    4.800000000000001
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.1,  -0.4 ]",
+                "parsed_coord": [
+                    -0.6000000000000001,
+                    -2.4000000000000004
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[-1, 1]",
+                "parsed_coord": [
+                    -6.0,
+                    6.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.08, 0.72 ]",
+                "parsed_coord": [
+                    -0.48,
+                    4.32
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.0,  -0.5]",
+                "parsed_coord": [
+                    0.0,
+                    -3.0
+                ]
+            }
+        }
+    },
+    {
+        "id": 15,
+        "prompt": "Reduce the sharpness of the 's' sounds.",
+        "category": "Audiobook",
+        "audio_clip": "1919-142785-0001.wav",
+        "descriptor": "Sibilance",
+        "credits": "dev-clean, LibriSpeech, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, -0.5]",
+                "parsed_coord": [
+                    3.0,
+                    -3.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.5,  -0.5 ]",
+                "parsed_coord": [
+                    -3.0,
+                    -3.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 16,
+        "prompt": "Ensure the voice can be heard clearly.",
+        "category": "Music",
+        "audio_clip": "Balon Rocop - Mardi Gras Nights at Universal.wav",
+        "descriptor": "Clear",
+        "credits": "Mardi Gras Nights at Universal, Balon Rocop, Free Music Archive, CC BY-NC-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, 0.5]",
+                "parsed_coord": [
+                    3.0,
+                    3.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, -0.45 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -2.7
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.4,  -0.7]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    -4.199999999999999
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.1,  -0.9]",
+                "parsed_coord": [
+                    0.6000000000000001,
+                    -5.4
+                ]
+            }
+        }
+    },
+    {
+        "id": 17,
+        "prompt": "Add more warmth to the background music.",
+        "category": "Music",
+        "audio_clip": "Azavela Torres - Hija del Silencio.wav",
+        "descriptor": "Warm",
+        "credits": "Hija del Silencio, Azavela Torres, Free Music Archive, CC BY-NC-ND License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.3, -0.3]",
+                "parsed_coord": [
+                    1.7999999999999998,
+                    -1.7999999999999998
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, -1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -6.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -1, -0.5 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -3.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9, 1.0]",
+                "parsed_coord": [
+                    5.4,
+                    6.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[ -0.4, 0.98 ]",
+                "parsed_coord": [
+                    -2.4000000000000004,
+                    5.88
+                ]
+            }
+        }
+    },
+    {
+        "id": 18,
+        "prompt": "Reduce the harshness in the vocals.",
+        "category": "Music",
+        "audio_clip": "Andrey Petrov - Картина мира.wav",
+        "descriptor": "Harsh",
+        "credits": "Картина мира, Andrey Petrov, Free Music Archive, CC BY License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.2, -0.2]",
+                "parsed_coord": [
+                    1.2000000000000002,
+                    -1.2000000000000002
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, 0.7 ]",
+                "parsed_coord": [
+                    -6.0,
+                    4.199999999999999
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.5,  -0.9]",
+                "parsed_coord": [
+                    3.0,
+                    -5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.1, 0.9]",
+                "parsed_coord": [
+                    0.6000000000000001,
+                    5.4
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.08, -0.92]",
+                "parsed_coord": [
+                    0.48,
+                    -5.5200000000000005
+                ]
+            }
+        }
+    },
+    {
+        "id": 19,
+        "prompt": "Reduce how heavy the music feels.",
+        "category": "Music",
+        "audio_clip": "Floodplain Gold - Сказка вновь не стала былью (dark version, Udio).wav",
+        "descriptor": "Heavy",
+        "credits": "Сказка вновь не стала былью (dark version, Udio), Blue Floodplain Gold, Free Music Archive, CC BY License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, 0.5]",
+                "parsed_coord": [
+                    3.0,
+                    3.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, 1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    6.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.0,  -0.9]",
+                "parsed_coord": [
+                    0.0,
+                    -5.4
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[ -0.5, -1.0 ]",
+                "parsed_coord": [
+                    -3.0,
+                    -6.0
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.5, 0.8]",
+                "parsed_coord": [
+                    3.0,
+                    4.800000000000001
+                ]
+            }
+        }
+    },
+    {
+        "id": 20,
+        "prompt": "Reduce the tinny quality in the voice.",
+        "category": "Movie",
+        "audio_clip": "Sintel2.wav",
+        "descriptor": "Tinny",
+        "credits": "Sintel, Blender Studios, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.2, -0.8]",
+                "parsed_coord": [
+                    1.2000000000000002,
+                    -4.800000000000001
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -1, 1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    6.0
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[-1, 1]",
+                "parsed_coord": [
+                    -6.0,
+                    6.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.4, 0.3]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    1.7999999999999998
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.8]",
+                "parsed_coord": [
+                    5.4,
+                    4.800000000000001
+                ]
+            }
+        }
+    },
+    {
+        "id": 21,
+        "prompt": "Make the dialogue easier to hear over the music.",
+        "category": "Movie",
+        "audio_clip": "Tearsofsteel6.wav",
+        "descriptor": "Movie Specific",
+        "credits": "Tears of Steel, Blender Studios, CC BY 4.0 License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0.5, 0.5]",
+                "parsed_coord": [
+                    3.0,
+                    3.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[0.4, 0.6]",
+                "parsed_coord": [
+                    2.4000000000000004,
+                    3.5999999999999996
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[0.0, 0.7]",
+                "parsed_coord": [
+                    0.0,
+                    4.199999999999999
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9, 0.9]",
+                "parsed_coord": [
+                    5.4,
+                    5.4
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.95, 0.99]",
+                "parsed_coord": [
+                    5.699999999999999,
+                    5.9399999999999995
+                ]
+            }
+        }
+    },
+    {
+        "id": 22,
+        "prompt": "Balance the music so it doesn't overpower the dialogue.",
+        "category": "Movie",
+        "audio_clip": "HorrorTrain1.wav",
+        "descriptor": "Movie Specific",
+        "credits": "Horror Train, Public Domain Movies, CC0 Public Domain License",
+        "predictions": {
+            "external_prompt_engineered_baseline": {
+                "raw_completion": "[0, 0]",
+                "parsed_coord": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "no_audio_baseline": {
+                "raw_completion": "[ -0.25,  -0.35 ]",
+                "parsed_coord": [
+                    -1.5,
+                    -2.0999999999999996
+                ]
+            },
+            "fx_model": {
+                "raw_completion": "[ -1, -1 ]",
+                "parsed_coord": [
+                    -6.0,
+                    -6.0
+                ]
+            },
+            "voice_model": {
+                "raw_completion": "[0.9,  -0.6]",
+                "parsed_coord": [
+                    5.4,
+                    -3.5999999999999996
+                ]
+            },
+            "fx_voice_model": {
+                "raw_completion": "[0.9, 0.99]",
+                "parsed_coord": [
+                    5.4,
+                    5.9399999999999995
+                ]
+            }
+        }
+    }
+]
