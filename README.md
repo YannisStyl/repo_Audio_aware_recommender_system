@@ -49,8 +49,8 @@ Audio conditioning uses two complementary, frozen feature extractors operating o
 
 | Feature Stream | Encoder Backbone | Output Shape | Acoustic Domain |
 | :--- | :--- | :--- | :--- |
-| **FX Stream** | [Fx-Encoder++](https://arxiv.org/abs/2505.20770) (Conv6) | $[T_{\text{Fx}}, 2048]$ | Instrument-wise mix balance, spatial depth, reverberation, and production character. |
-| **Voice Stream** | [Auden-Voice](https://arxiv.org/abs/2501.12345) (Zipformer) | $[T_{\text{Voice}}, 768]$ | Paralinguistic cues, vocal formants, sibilance, speech clarity, and narrator tone. |
+| **FX Stream** | [Fx-Encoder++](https://arxiv.org/abs/2507.02273) (Conv6) | $[T_{\text{Fx}}, 2048]$ | Instrument-wise mix balance, spatial depth, reverberation, and production character. |
+| **Voice Stream** | [Auden-Voice](https://arxiv.org/abs/2511.15145) (Zipformer) | $[T_{\text{Voice}}, 768]$ | Paralinguistic cues, vocal formants, sibilance, speech clarity, and narrator tone. |
 
 ### 2.3 Temporal Q-Former Cross-Attention Adapters
 To preserve chronological acoustic information, each stream connects to the language model via an independent **Q-Former adapter**:
@@ -180,18 +180,16 @@ repo_Audio_aware_recommender_system/
 │       ├── Voice_model/checkpoint-10700/      # Voice-only checkpoint
 │       └── Text_only/checkpoint-9050/         # No-audio baseline checkpoint
 │
-├── Listening_Exp/
-│   └── Perceptual_evaluation/
-│       ├── analyze_perceptual_results.py      # Statistical evaluation (Friedman, Wilcoxon)
-│       ├── generate_model_predictions.py      # Generates full candidate prediction sets
-│       ├── generate_model_predictions_concise.py # Generates concise greedy predictions
-│       ├── prompt_audio_link.json             # Held-out prompt-audio linkage
-│       ├── model_predictions_concise.json     # Generated model coordinates for study
-│       ├── perceptual_ratings_tidy.csv        # MUSHRA listener ratings dataset (N=3,850)
-│       └── Results/                           # Raw individual listener JSON logs (30 assessors)
-│
-└── results/
-    └── perceptual_experiment_and_conclusion.txt # LaTeX summary of experimental analysis
+└── Listening_Exp/
+    └── Perceptual_evaluation/
+        ├── analyze_perceptual_results.py      # Statistical evaluation (Friedman, Wilcoxon)
+        ├── generate_model_predictions.py      # Generates full candidate prediction sets
+        ├── generate_model_predictions_concise.py # Generates concise greedy predictions
+        ├── prompt_audio_link.json             # Held-out prompt-audio linkage
+        ├── model_predictions_concise.json     # Generated model coordinates for study
+        ├── perceptual_ratings_tidy.csv        # MUSHRA listener ratings dataset (N=3,850)
+        └── Results/                           # Raw individual listener JSON logs (30 assessors)
+
 ```
 
 ---
