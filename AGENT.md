@@ -15,7 +15,7 @@ When resuming work or performing tasks in this repository, follow these rules in
 1. **Read this file (`AGENT.md`)**: Contains all technical specifications, mathematical definitions, data schemas, checkpoint mappings, and gotchas.
 2. **Read `README.md`**: Provides the human-facing domain motivation, architectural overview, and summary of empirical findings.
 3. **Check Python Environment**:
-   - Main environment: **`python`** (PyTorch 2.0+, Transformers, TRL, PEFT, datasets) — used for all training, inference, reward modeling, and evaluation.
+   - Main environment: **`python`**, i.e. the venv at `C:\PhD\.venv_1` (PyTorch 2.0+, Transformers, TRL, PEFT, datasets) — used for all training, inference, reward modeling, and evaluation. Invoke it directly via `C:/PhD/.venv_1/Scripts/python.exe` rather than relying on a `python` on PATH or an activated shell.
    - Feature extraction environments (if re-extracting from raw audio):
      - FX feature extraction (`extract_fx_features.py`): Requires `.venv_fx_plusplus_312` (Python 3.12, Fx-Encoder++ dependencies).
      - Voice feature extraction (`extract_voice_features.py`): Requires `.venv_wsl` (Linux/WSL environment for Auden-Voice dependencies).

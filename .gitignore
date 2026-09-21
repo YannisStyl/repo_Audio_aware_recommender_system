@@ -47,6 +47,7 @@ src/GRPO_models/Voice_model/
 
 # Temporary and local documents
 temp.txt
+*.tex
 *.tmp
 *.pdf
 
@@ -55,3 +56,4 @@ temp.txt
 .idea/
 .DS_Store
 Thumbs.db
+CLAUDE.md
