@@ -110,25 +110,24 @@ To verify that the model genuinely listens to the audio rather than memorizing p
 - **Double Dissociation**: Voice-only swaps exhibit sharp cross-domain sensitivity (density drops from $0.54$ in-domain to $0.32$ cross-domain), while FX-only swaps reliably detect track-level alterations across all domains.
 
 ### 4.2 Perceptual Listening Test (MUSHRA)
-We conducted a blinded, multi-stimulus perceptual listening experiment (MUSHRA, ITU-R BS.1534) with 25 screened listeners evaluating 22 held-out (prompt, audio) pairs across 4 content categories (Scale: 0–100):
+We conducted a blinded, multi-stimulus perceptual listening experiment (MUSHRA, ITU-R BS.1534) with 25 screened listeners evaluating 22 held-out (prompt, audio) pairs across 3 content categories (Instrumental, Audiobook, and Mixed = sung Music + Movie dialogue/score, merged since both combine vocals with other sound) (Scale: 0–100). Values are estimated marginal means $\pm$ SE from a joint mixed model (`glmmTMB`: `model × category` fixed effects, crossed listener/prompt random effects, per-condition residual variance):
 
-| Model / Condition | Instrumental ($N=175$) | Audiobook ($N=200$) | Music ($N=100$) | Movie ($N=75$) | Overall ($N=550$) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Tonmeister (Human Expert)** | $44.86 \pm 24.04$ | $43.28 \pm 22.90$ | $39.44 \pm 21.27$ | $43.32 \pm 24.00$ | **43.09 ± 23.15** |
-| **Modular Routing ($\max(\text{Voice}, \text{FX})$)** | **50.42 ± 25.68** | $41.87 \pm 28.45$ | **42.58 ± 29.91** | $39.40 \pm 24.65$ | **44.38 ± 27.63** |
-| **In-Context Learning (Qwen3.5-4B)** | $35.55 \pm 24.30$ | $40.97 \pm 23.27$ | $39.90 \pm 19.99$ | $42.21 \pm 25.01$ | $39.22 \pm 23.38$ |
-| **Voice-only (0.8B)** | **50.42 ± 25.68** | $41.87 \pm 28.45$ | $9.55 \pm 14.59$ | $37.07 \pm 24.07$ | $38.06 \pm 28.65$ |
-| **No-Audio Baseline (0.8B)** | $42.48 \pm 25.30$ | $36.48 \pm 24.92$ | $35.62 \pm 24.47$ | $34.17 \pm 21.96$ | $37.92 \pm 24.72$ |
-| **FX-only (0.8B)** | $38.74 \pm 26.71$ | $26.00 \pm 23.98$ | **42.58 ± 29.91** | $39.40 \pm 24.65$ | $34.90 \pm 26.92$ |
-| **Voice+FX (0.8B Dual)** | $27.55 \pm 26.56$ | $25.62 \pm 27.27$ | $32.55 \pm 26.65$ | $37.23 \pm 28.71$ | $29.08 \pm 27.36$ |
-| **Hidden Reference (Unprocessed)** | $26.56 \pm 15.25$ | $31.27 \pm 18.47$ | $27.72 \pm 14.46$ | $32.27 \pm 17.63$ | $29.26 \pm 16.81$ |
+| Category | Condition | Instrumental ($N=175$) | Audiobook ($N=200$) | Mixed ($N=175$) | Overall ($N=550$) |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Baselines | Tonmeister (Expert) | $44.86 \pm 2.68$ | **$43.28 \pm 2.54$** | $41.10 \pm 2.68$ | **$43.09 \pm 1.78$** |
+| | ICL (4B) | $35.55 \pm 2.65$ | $40.97 \pm 2.51$ | $40.89 \pm 2.65$ | $39.22 \pm 1.76$ |
+| | Hidden Reference | $26.56 \pm 2.44$ | $31.27 \pm 2.32$ | $29.67 \pm 2.44$ | $29.26 \pm 1.66$ |
+| | No Audio (0.8B) | $42.48 \pm 2.78$ | $36.48 \pm 2.63$ | $35.00 \pm 2.78$ | $37.92 \pm 1.82$ |
+| Audio-Conditioned | Voice-only (0.8B) | **$50.42 \pm 2.84$** | $41.87 \pm 2.69$ | $21.34 \pm 2.84$ | $38.06 \pm 1.85$ |
+| | FX-only (0.8B) | $38.74 \pm 2.87$ | $26.00 \pm 2.72$ | **$41.22 \pm 2.87$** | $34.90 \pm 1.87$ |
+| | Voice+FX (0.8B Dual) | $27.55 \pm 2.87$ | $25.62 \pm 2.72$ | $34.55 \pm 2.87$ | $29.08 \pm 1.87$ |
+
+Pairwise significance for a fixed set of 7 planned (comparison, category) combinations (corrected via the multivariate-t adjustment, Hothorn et al., 2008, as one family — not a full pairs $\times$ categories cross product, and not Holm-Bonferroni's independence-worst-case penalty) is in `Listening_Exp/Perceptual_evaluation/lmm_contrasts.tex`.
 
 ### 4.3 Key Takeaways & Design Insights
-1. **Acoustic Grounding Outperforms Text-Only Baselines**: In-domain, Voice-only beats the text baseline on Audiobook ($+5.39$, $p=0.040$, Wilcoxon signed-rank test), and FX-only beats text on Music ($+6.96$).
-2. **Compact 0.8B Specialists Beat 5x Larger LLMs**: The 0.8B Voice specialist achieved the highest score in the study on Instrumental tracks ($50.42$), outperforming both the text baseline ($42.48, p < 0.001$) and the $5\times$ larger Qwen3.5-4B ($35.55, p = 2.33 \times 10^{-7}$).
-3. **Modular Routing vs. Monolithic Fusion**:
-   - The naively fused dual model collapsed under greedy ($T=0$) decoding ($29.08$). Because RL diversity training teaches the model multiple valid clusters (e.g., brightening vs. softening modes), greedy argmax decoding collapses onto a single dominant high-frequency mode. While it excelled on brightening requests ($60\text{--}66$), it applied high-frequency boosts to softening requests, causing listeners to heavily penalize active harm ($12\text{--}17$).
-   - In contrast, **routing inputs to their specialized stream** (Voice for speech/solo instruments, FX for music mixtures) yields an overall score of **$44.38 \pm 27.63$**, outperforming Qwen3.5-4B ($p = 0.0013$) and matching human Tonmeister performance ($43.09$).
+
+1. **Voice-only Beats Both the Text-Only Baseline and a 5x Larger LLM, on Its Best-Fit Domain**: On Instrumental, Voice-only significantly outperforms both No-Audio ($+7.94$, $p_{\text{adj}}=0.015$) and the $5\times$ larger Qwen3.5-4B (ICL, $+14.86$, $p_{\text{adj}}=1.05\times 10^{-8}$) — the highest score in the study on that category ($50.42$). It does not significantly beat Tonmeister there ($+5.56$, n.s.), and the advantage over No-Audio does not extend to Audiobook ($+5.39$, n.s.).
+2. **FX-only Does Not Significantly Beat Anything on Mixed, Despite the Highest Raw Mean**: FX-only has the highest raw mean on Mixed ($41.22$) but is n.s. against No-Audio ($+6.22$), ICL ($+0.33$), and Tonmeister ($+0.11$) there — the raw lead is not statistically reliable.
 
 ---
 

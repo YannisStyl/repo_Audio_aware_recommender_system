@@ -12,7 +12,13 @@ Performs:
   3. Non-parametric hypothesis testing (Friedman test, pairwise Wilcoxon signed-rank tests
      with Holm-Bonferroni correction).
   4. Delta-to-reference analysis (difference vs. unprocessed hidden reference).
-  5. Publication-ready LaTeX tables export (perceptual_results_tables.tex).
+  5. LaTeX tables export (perceptual_results_tables_full_cohort.tex).
+
+NOTE: This script analyses ALL 30 assessors (no hidden-reference screening) and is
+kept for ingestion and exploratory full-cohort statistics. The published N=25
+results come from run_lmm.py (lmm_table.tex) and generate_wilcoxon_latex.py
+(wilcoxon_per_category.tex), which apply the screening; perceptual_results_tables.tex
+is the concatenation of those two outputs.
 
 Usage:
   python analyze_perceptual_results.py
@@ -40,7 +46,7 @@ RESULTS_DIR = SCRIPT_DIR / "Results"
 PROMPT_LINK_FILE = SCRIPT_DIR / "prompt_audio_link.json"
 
 TIDY_CSV_OUT = SCRIPT_DIR / "perceptual_ratings_tidy.csv"
-TEX_OUT = SCRIPT_DIR / "perceptual_results_tables.tex"
+TEX_OUT = SCRIPT_DIR / "perceptual_results_tables_full_cohort.tex"
 
 
 # =============================================================================
@@ -357,7 +363,7 @@ def export_latex_tables(overall_summary: pd.DataFrame,
         tex_content.append(f"{dname:<28} & " + " & ".join(cells) + " \\\\")
 
     tex_content.append("\\hline")
-    tex_content.append("\\end{tabular*}")
+    tex_content.append("\\end{tabular}")
     tex_content.append("\\end{table*}\n\n")
 
     # Table 3: Pairwise Wilcoxon Comparisons

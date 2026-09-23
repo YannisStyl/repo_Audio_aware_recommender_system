@@ -19,6 +19,7 @@ When resuming work or performing tasks in this repository, follow these rules in
    - Feature extraction environments (if re-extracting from raw audio):
      - FX feature extraction (`extract_fx_features.py`): Requires `.venv_fx_plusplus_312` (Python 3.12, Fx-Encoder++ dependencies).
      - Voice feature extraction (`extract_voice_features.py`): Requires `.venv_wsl` (Linux/WSL environment for Auden-Voice dependencies).
+   - Perceptual evaluation statistics (`run_lmm_glmmTMB.R`): Requires R (`AppData/Local/Programs/R/R-<version>/bin/Rscript.exe`, not on PATH — not installed via the Python venvs above) with the `glmmTMB` and `emmeans` packages.
 4. **Never introduce broken file dependencies**: The files `GEMINI.md` and `project_overview.md` have been consolidated into `AGENT.md` and `README.md`. Do not reference or look for them.
 
 ---
@@ -80,7 +81,9 @@ repo_Audio_aware_recommender_system/
 │
 ├── Listening_Exp/
 │   └── Perceptual_evaluation/
-│       ├── analyze_perceptual_results.py      ← Statistical evaluation pipeline (Friedman, Wilcoxon)
+│       ├── analyze_perceptual_results.py      ← Ingestion (tidy CSV) + exploratory full-cohort stats (N=30)
+│       ├── run_lmm_glmmTMB.R                  ← Joint LMM (glmmTMB, model x category, per-condition residual variance): lmm_emm_r.csv + lmm_pairwise_contrasts_r.csv
+│       ├── format_r_lmm_tables.py             ← Formats run_lmm_glmmTMB.R's CSV output into lmm_table.tex / lmm_contrasts.tex
 │       ├── generate_model_predictions.py      ← Generates full candidate prediction sets (7 points)
 │       ├── generate_model_predictions_concise.py ← Generates concise greedy predictions (5 points)
 │       ├── extract_perceptual_fx_features.py  ← Feature extraction for held-out perceptual tracks
@@ -90,8 +93,8 @@ repo_Audio_aware_recommender_system/
 │       ├── model_predictions_concise.json     ← Concise greedy prediction outputs
 │       ├── perceptual_prompt_to_fx.pkl        ← Held-out FX features pickle
 │       ├── perceptual_prompt_to_voice.pkl     ← Held-out Voice features pickle
-│       ├── perceptual_ratings_tidy.csv        ← Tidy ratings dataset (N=3,850 evaluations)
-│       ├── perceptual_results_tables.tex      ← Publication LaTeX tables for perceptual study
+│       ├── perceptual_ratings_tidy.csv        ← Tidy ratings dataset (4,620 ratings, all 30 assessors, unscreened; tracked in git)
+│       ├── perceptual_results_tables.tex      ← Publication LaTeX tables (lmm_table.tex + lmm_contrasts.tex)
 │       └── Results/                           ← Raw individual listener JSON logs (30 assessors)
 │
 └── results/
@@ -214,7 +217,7 @@ Files: `Data_dir/reward_models/reward_models_augmented_train.pkl` and `reward_mo
 
 ### 4.5 Dataset Metadata Files
 - `Data_dir/prompts_and_audio_data.json`: 130 entries with schema `{"prompt", "responses", "initial position", "track"}` across 119 unique tracks.
-- `Listening_Exp/Perceptual_evaluation/prompt_audio_link.json`: 22 held-out pairs across 4 categories (7 Instrumental, 8 Audiobook, 4 Music, 3 Movie).
+- `Listening_Exp/Perceptual_evaluation/prompt_audio_link.json`: 22 held-out pairs across 4 categories (7 Instrumental, 8 Audiobook, 4 Songs, 3 Movie; CSV label "Music" = Songs).
 
 ---
 
@@ -414,7 +417,7 @@ python src/GRPO_models/grounding_swap_test.py \
 ## 11. Perceptual Evaluation (MUSHRA) Pipeline
 
 Located in `Listening_Exp/Perceptual_evaluation/`:
-- **Held-Out Test Set:** 22 items across 4 categories (7 Instrumental, 8 Audiobook, 4 Music, 3 Movie). Audio sourced from LibriSpeech, Free Music Archive, and Blender open movies.
+- **Held-Out Test Set:** 22 items across 4 categories (7 Instrumental, 8 Audiobook, 4 Songs, 3 Movie; the CSV labels Songs as "Music"). Analysis merges Songs + Movie into one "Mixed" category (7 prompts). Audio sourced from LibriSpeech, Free Music Archive, and Blender open movies.
 - **Experimental Design:** Blinded MUSHRA listening test (ITU-R BS.1534) comparing 7 conditions:
   1. `Tonmeister 1`: Settings from an expert human sound engineer.
   2. `ICL (Qwen3.5-4B)`: $5\times$ larger LLM baseline (in-context learning, no audio).
@@ -423,8 +426,14 @@ Located in `Listening_Exp/Perceptual_evaluation/`:
   5. `Voice+FX (0.8B Dual)`: Joint multi-stream model.
   6. `No Audio (0.8B Baseline)`: Compact text-only baseline.
   7. `Hidden Reference`: Unprocessed raw audio (objective control).
-- **Screening & Consistency:** 30 assessors evaluated all stimuli; 5 failed the hidden reference control check (rating unmodified audio $> 50$), leaving $N = 25$ consistent listeners ($3,850$ total evaluations).
-- **Statistical Pipeline:** `analyze_perceptual_results.py` computes Friedman test, Wilcoxon signed-rank tests with Bonferroni-Holm correction, and exports `perceptual_results_tables.tex`.
+- **Screening & Consistency:** 30 assessors evaluated all stimuli; 5 failed the hidden reference control check (average hidden-reference score $> 50$), leaving $N = 25$ consistent listeners ($3,850$ evaluations; `perceptual_ratings_tidy.csv` itself holds all $4,620$ ratings from the 30 assessors, unscreened). The screening is applied inside `run_lmm_glmmTMB.R`, **not** in `analyze_perceptual_results.py`. Note that the screening truncates the Hidden Reference mean by construction.
+- **Statistical Pipeline (N=25 reported results) — R required (`glmmTMB`, `emmeans`):**
+  1. `analyze_perceptual_results.py`: ingests the 30 raw per-assessor JSONs (`Results/`) into `perceptual_ratings_tidy.csv`; also computes exploratory full-cohort ($N=30$, unscreened) stats (Friedman, Wilcoxon) into `perceptual_results_tables_full_cohort.tex`, not used in the reported tables. `perceptual_ratings_tidy.csv` is tracked in git (reproducible from the tracked `Results/*.json`, but kept committed as the canonical dataset snapshot).
+  2. `run_lmm_glmmTMB.R`: the sole statistics-fitting step. Reads `perceptual_ratings_tidy.csv` directly and does its own screening/category-merge (Music+Movie → Mixed). Fits one joint model, `glmmTMB(score ~ model * category + (1|assessor_id) + (1|prompt_slug), dispformula = ~ model, REML = TRUE)`: crossed assessor/prompt random intercepts (natively supported, unlike `nlme` which only handles nested random effects) plus a **per-condition residual variance** via `dispformula` — confirmed real and significant (e.g. Hidden Reference has significantly lower residual SD than every audio-conditioned model, $p < 10^{-11}$), not a modeling artifact. Always check `m$fit$convergence == 0` and `m$sdr$pdHess == TRUE` before trusting a fit; if unstable, the fallback is `dispformula = ~1` (shared residual variance) with that limitation disclosed.
+     - **EMMs**: `emmeans(m, ~ model | category)` per category; `emmeans(m, ~ model, weights = "cells")` for `Overall` — `weights = "cells"` is required, not the `emmeans` default (`weights = "equal"`), because Audiobook has 8 prompts vs. 7 for Instrumental/Mixed; the default would average categories unweighted and not reproduce the raw pooled mean. Writes `lmm_emm_r.csv`.
+     - **Pairwise contrasts**: a fixed set of pre-specified `(comparison, category)` cells — not a pairs × categories cross product. Restricting to a small, specific set of planned comparisons keeps the multiple-comparisons correction from paying a penalty for untested combinations. `mk_overall` / `cat_weights` in the script are unused by the current set (no `Overall` row is included) but kept as a reusable helper for adding one back. All contrasts are built as vectors over **one flat 21-cell `emmeans(m, ~ model * category)` grid** (not computed separately per category then combined) so their true joint covariance is available, then corrected via `adjust = "mvt"` (multivariate-t, Hothorn et al. 2008) rather than Holm-Bonferroni — several of these contrasts share a reference condition (e.g. `Voice-NoAudio` and `Voice-ICL` both @ Instrumental) and are therefore correlated, which mvt accounts for directly instead of assuming worst-case independence. `p_holm` (from the same raw p-values) is kept in `lmm_pairwise_contrasts_r.csv` for comparison, but `p_mvt`/`stars` is what's reported. **The contrast set is intentionally small and fixed** — adding or removing a comparison changes every other comparison's adjusted p-value (they share one correction family), so treat the list in `run_lmm_glmmTMB.R` as authoritative and re-derive every p-value cited in README.md from a fresh `lmm_pairwise_contrasts_r.csv` after any change to it.
+  3. `format_r_lmm_tables.py`: turns those two CSVs into `lmm_table.tex` (grouped by `\multirow` into Baselines / Audio-Conditioned rows; needs `\usepackage{multirow}`) and `lmm_contrasts.tex`.
+  - `perceptual_results_tables.tex` = `lmm_table.tex` + `lmm_contrasts.tex` concatenated (UTF-8); regenerate after re-running the R script and formatter.
 
 ---
 

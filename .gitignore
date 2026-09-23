@@ -24,6 +24,7 @@ Data_dir/dsp_features/
 Data_dir/archive/
 Data_dir/reward_models/
 *.pkl
+*.csv
 
 # Audio files
 *.wav
