@@ -163,3 +163,56 @@ all_planned$stars <- ifelse(all_planned$p_mvt < 0.001, "***",
 write.csv(all_planned, "lmm_pairwise_contrasts_r.csv", row.names = FALSE)
 cat("Wrote lmm_pairwise_contrasts_r.csv (mvt-adjusted, Holm kept for comparison)\n")
 print(all_planned)
+
+# =============================================================================
+# Modular routing: a derived condition, not one of the 7 raw conditions. For each
+# category, route to whichever of Voice or FX has the higher mean there (Voice for
+# Instrumental and Audiobook, FX for Mixed), then take the same category-N-weighted
+# average used for "Overall" elsewhere in this script. Expressed as a linear
+# combination of existing cells (mixing different conditions per category) rather
+# than a per-trial max of the raw scores, so it is computed and tested with the
+# same contrast machinery as everything else here.
+# =============================================================================
+routed_condition_by_category <- list(Instrumental = "Voice", Audiobook = "Voice", Mixed = "FX")
+L_routed <- rep(0, nrow(grid_df))
+for (cat in category_levels) {
+  L_routed[cell_index(routed_condition_by_category[[cat]], cat)] <- cat_weights[[cat]]
+}
+
+routed_emm <- as.data.frame(contrast(emm_full, method = list("Routed" = L_routed)))
+cat("\nRouted EMM:", routed_emm$estimate, "SE:", routed_emm$SE, "\n")
+write.csv(routed_emm[, c("estimate", "SE")], "lmm_routing_emm_r.csv", row.names = FALSE)
+
+# Category-N-weighted overall vector for a single condition (mk_overall above only
+# builds the weighted *difference* between two conditions).
+mk_condition_overall <- function(mod) {
+  v <- rep(0, nrow(grid_df))
+  for (cat in category_levels) v[cell_index(mod, cat)] <- cat_weights[[cat]]
+  v
+}
+routing_contrasts <- list(
+  "Routed - NoAudio"      = L_routed - mk_condition_overall("NoAudio"),
+  "Routed - ICL"          = L_routed - mk_condition_overall("ICL"),
+  "Routed - Tonmeister_1" = L_routed - mk_condition_overall("Tonmeister_1")
+)
+routing_obj <- contrast(emm_full, method = routing_contrasts)
+routing_mvt <- as.data.frame(summary(routing_obj, adjust = "mvt"))
+routing_raw <- as.data.frame(summary(routing_obj, adjust = "none"))$p.value
+routing_holm <- p.adjust(routing_raw, method = "holm")
+
+routing_results <- data.frame(
+  contrast = routing_mvt$contrast,
+  estimate = routing_mvt$estimate,
+  SE = routing_mvt$SE,
+  z.ratio = routing_mvt$z.ratio,
+  p.value = routing_raw,
+  p_mvt = routing_mvt$p.value,
+  p_holm = routing_holm
+)
+routing_results$stars <- ifelse(routing_results$p_mvt < 0.001, "***",
+                          ifelse(routing_results$p_mvt < 0.01, "**",
+                          ifelse(routing_results$p_mvt < 0.05, "*", "n.s.")))
+
+write.csv(routing_results, "lmm_routing_contrasts_r.csv", row.names = FALSE)
+cat("Wrote lmm_routing_emm_r.csv, lmm_routing_contrasts_r.csv (mvt-adjusted, family of 3, separate from the pairwise-contrast family above)\n")
+print(routing_results)
