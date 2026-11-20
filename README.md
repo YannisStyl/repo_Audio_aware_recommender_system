@@ -22,7 +22,7 @@ While Large Language Models (LLMs) can interpret natural-language requests, **te
 - Standard multimodal LLMs often suffer from **modality collapse** or **text shortcuts**, relying purely on textual semantics while ignoring the audio signal.
 
 ### The Solution
-This system introduces a grounded multimodal architecture that conditions a compact LLM on acoustic signals via specialized, frozen encoders and learnable cross-attention adapters:
+This system introduces a grounded multimodal architecture that conditions a compact LLM on acoustic signals via specialized, frozen encoders and learnable adapters:
 
 ![Architecture Overview](fx_voice_GRPO.png)
 
